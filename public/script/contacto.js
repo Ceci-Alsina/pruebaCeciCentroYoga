@@ -27,6 +27,7 @@ document.getElementById('formularioContacto').addEventListener('submit', functio
     .then(data => {
         console.log('Success:', data);
         alert('Contacto enviado con éxito');
+        document.getElementById('formularioContacto').reset(); // Limpiar el formulario
     })
     .catch((error) => {
         console.error('Error:', error);
