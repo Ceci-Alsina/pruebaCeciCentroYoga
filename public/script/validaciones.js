@@ -23,11 +23,13 @@
         };
     
         // Validación para el email
-        const email = document.getElementById("email");
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,30}$/;
+        const email = document.getElementById('email');
         email.oninput = function() {
-            email.setCustomValidity('');
-            if (!email.validity.valid) {
-                email.setCustomValidity("¡Se esperaba una dirección de correo electrónico válida y no puede estar vacía!");
+            if (!emailPattern.test(email.value)) {
+                email.setCustomValidity('Correo electrónico no válido');
+            } else {
+                email.setCustomValidity('');
             }
         };
     
