@@ -135,6 +135,26 @@ footer > div {
     font-size: 0.8rem;
 }
 
+.product-item {
+    background-color: var(--color-light-grey);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-item h3 {
+    margin-top: 0;
+}
+
+#searchInput {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-light-grey);
+    margin-left: 20px;
+}
+
+
 /* Media Queries para pantallas de 992px */
 @media (max-width: 992px) {
     .contenido {

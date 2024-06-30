@@ -14,7 +14,10 @@ app.use(express.json());
 
 // Importar rutas
 const contactoRoutes = require('../routes/contactoRoutes');
+const productoRoutes = require('../routes/productosRoutes');
+
 app.use('/api/contactos', contactoRoutes);
+app.use('/api/productos', productoRoutes);
 
 // Configurar el puerto
 const PORT = process.env.PORT || 3000;
