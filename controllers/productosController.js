@@ -63,6 +63,8 @@ const deleteProduct = (req, res) => {
     });
 };
 
+
+
 module.exports = {
     getAllProducts,
     getProductById,

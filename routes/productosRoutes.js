@@ -15,6 +15,8 @@ router.get('/:id', getProductById);
 router.post('/', upload.single('imagen'), createProduct); // Subida de un solo archivo
 router.put('/:id', upload.single('imagen'), updateProduct); // Subida de un solo archivo
 router.delete('/:id', deleteProduct);
+router.get('/all', getAllProducts);
+
 
 module.exports = router;
 
