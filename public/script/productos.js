@@ -131,7 +131,7 @@ function filterProducts() {
     const filterValue = document.getElementById('searchInput').value.toLowerCase();
     const rows = document.querySelectorAll('#productList tr');
     rows.forEach(row => {
-        const categoryCell = row.cells[5]; // Columna de categoría
+        const categoryCell = row.cells[1]; // Columna de nombre (se busca por nombre de producto)
         if (categoryCell) {
             const category = categoryCell.textContent.toLowerCase();
             if (category.includes(filterValue)) {
