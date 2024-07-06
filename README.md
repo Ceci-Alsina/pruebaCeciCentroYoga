@@ -91,6 +91,11 @@ Este proyecto es el backend para la aplicación "Centro De Yoga", que gestiona l
 - `DELETE /mensajes`: Eliminar un mensaje de consulta.
 - `PUT /mensajes`: Actualizar un mensaje de consulta.
 
+### Autenticación de usuario
+
+- `POST /login`: Permite ingresar a las pantalla de Administración de consultas y de productos.
+- `GET /logout`: Permite salir de la aplicación.
+
 ## Base de datos
 
 ### Estructura de tablas de base de datos
