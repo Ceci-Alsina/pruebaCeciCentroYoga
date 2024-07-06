@@ -64,29 +64,42 @@ Este proyecto es el backend para la aplicación "Centro De Yoga", que gestiona l
 
 ## 🗂 Estructura del Proyecto
 
-- `config/`: Configuración de Multer para la carga de archivos.
+- `config/`: Configuración de conexión a la Base de datos y Multer para la carga de archivos.
 - `controllers/`: Controladores que manejan la lógica de negocio.
-- `db/`: Configuración de la conexión a la base de datos.
+- `DB/`: Configuración de la estructura de la base de datos.
 - `public/`: Archivos estáticos.
 - `routes/`: Definición de las rutas de la API.
-- `src/`: Archivo principal de la aplicación.
+- `app.js`: Archivo principal de la aplicación.
 
 ## 📚 Rutas de la API
 
 ### Productos
 
-- `GET /api/productos`: Obtener todos los productos.
-- `GET /api/productos/:id`: Obtener un producto por ID.
-- `POST /api/productos`: Crear un nuevo producto.
-- `PUT /api/productos/:id`: Actualizar un producto existente.
-- `DELETE /api/productos/:id`: Eliminar un producto.
+- `GET /productos`: Obtener todos los productos.
+- `GET /productos/:id`: Obtener un producto por ID.
+- `DELETE /productos/:id`: Eliminar un producto.
+- `POST /productos`: Crear un nuevo producto.
+- `PUT /productos/:id`: Actualizar un producto existente.
+- `GET /categorias`: Obtener todas las categorías de productos.
 
-### Contactos
+### Consultas
 
-- `GET /api/contactos`: Obtener todos los contactos.
-- `POST /api/contactos`: Crear un nuevo contacto.
+- `GET /generos`: Obtener todos los géneros para el formulario de consulta.
+- `GET /rangosEtarios`: Obtener todos los rangos etarios para el formulario de consulta.
+- `POST /altaContacto`: Crear una nueva consulta desde el formulario de consulta.
+- `GET /mensajes`: Obtener los mensajes de las consultas de los clientes.
+- `DELETE /mensajes`: Eliminar un mensaje de consulta.
+- `PUT /mensajes`: Actualizar un mensaje de consulta.
+
+## Base de datos
+
+### Estructura de tablas de base de datos
+
+![Estructura de tablas](/DB/yoga.svg)
+
 
 ## Contribución
+
 
 
 

@@ -24,11 +24,11 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#contactoContenido {
+#loginContenido {
     display: grid;
 }
 
-#contactoContenido > div {
+#loginContenido > div {
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
@@ -36,20 +36,20 @@ footer {
     margin-right: 2rem;
 }
 
-#formularioContacto {
+#formularioLogin {
     display: grid;
     grid-template-columns: 1fr 5fr;
     margin-right: 4rem;
 }
 
-#formularioContacto > label {
+#formularioLogin > label {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
 
-#formularioContacto > input, #formularioContacto > textarea, #formularioContacto > select {
+#formularioLogin > input {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
@@ -57,17 +57,12 @@ footer {
     width: 25rem; /* para que todos los inputs y select tengan el mismo tamaño */
 }
 
-#formularioContacto > textarea {
-    height: 5rem;
-}
-
-#formularioContacto > div {
+#formularioLogin > div {
     margin-left: 1rem;
 }
 
-#formularioContacto > div > input[type=submit],
-#formularioContacto > div > input[type=reset],
-#cerrarDialogoRespuestaSubmit
+#formularioLogin > div > input[type=submit],
+#cerrarDialogoRespuestaLogin
 {
     width: 100px;
     background-color: var(--color-light-violeta);
@@ -76,63 +71,49 @@ footer {
     color: white;
 }
 
-#dialogoRespuestaSubmit {
+#dialogoRespuestaLogin {
     border: 3px solid var(--color-light-violeta);
     border-radius: 5px;
     background: var(--color-light-blue);
     text-align: center;
 }
 
-#formularioContacto > select {
-    border: 1px solid gray;
-    background-color: white;
-    padding-left: 1rem;
-    padding-right: 0.125rem;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-}
-
-#rangoEdad {
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
-}
-
 /* Media Queries responsive */
 @media (max-width: 992px) {
-    #contactoContenido > div {
+    #loginContenido > div {
         grid-template-columns: 1fr;
         margin-left: 1rem;
     }
 
-    #contactoContenido > div > p {
+    #loginContenido > div > p {
         width: 75%;
     }
 
-    #formularioContacto {
+    #formularioLogin {
         grid-template-columns: 1fr;
     }
 
-    #formularioContacto > label {
+    #formularioLogin > label {
         margin-bottom: 0.25rem;
     }
 
-    #formularioContacto > input, #formularioContacto > textarea, #formularioContacto > select {
+    #formularioLogin > input {
         width: 100%; /* Ajusta el ancho en pantallas pequeñas */
         margin-top: 0.25rem;
     }
 }
 
 @media (max-width: 800px) {
-    #contactoContenido > div {
+    #loginContenido > div {
         margin-left: 1rem;
         margin-right: 1rem;
     }
     
-    #formularioContacto > label {
+    #formularioLogin > label {
         margin-bottom: 0.25rem;
     }
 
-    #formularioContacto > input, #formularioContacto > textarea, #formularioContacto > select {
+    #formularioLogin > input {
         width: 100%; /* Ajusta el ancho en pantallas pequeñas */
         margin-top: 0.25rem;
     }

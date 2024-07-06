@@ -1,26 +1,40 @@
+var categorias = [];
+
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
+
+    
+    fetch("/categorias")
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+            data.forEach((e) => {
+                categorias.push(new Option(e.DESCRIPCION, e.ID))
+            });
+        })
+        .catch((error) => console.error(error))
 });
 
 function loadProducts() {
-    fetch('http://localhost:3000/api/productos')
+    fetch('/productos')
         .then(response => response.json())
         .then(products => {
             const productList = document.getElementById('productList');
             productList.innerHTML = '';
             products.forEach(product => {
+                let aux = "data:imgen/png;base64," + product.IMAGEN
+
                 const productRow = document.createElement('tr');
                 productRow.innerHTML = `
-                    <td>${product.id_producto}</td>
-                    <td>${product.nombre}</td>
-                    <td>${product.precio}</td>
-                    <td>${product.descripcion}</td>
-                    <td>${product.stock}</td>
-                    <td>${product.fk_categoria}</td>
-                    <td><img src="../uploads/${product.imagen}" alt="${product.nombre}" class="small-img"></td>
+                    <td>${product.ID}</td>
+                    <td>${product.NOMBRE}</td>
+                    <td>${product.PRECIO}</td>
+                    <td>${product.DESCRIPCION}</td>
+                    <td>${product.STOCK}</td>
+                    <td>${product.CATEGORIA}</td>
+                    <td><img src="${aux}" alt="${product.NOMBRE}" class="small-img"></td>
                     <td>
-                        <button class="btn btn-edit" onclick="editProduct(${product.id_producto})">Modificar</button>
-                        <button class="btn btn-delete" onclick="deleteProduct(${product.id_producto})">Eliminar</button>
+                        <button class="btn btn-edit" onclick="editProduct(${product.ID})">Modificar</button>
+                        <button class="btn btn-delete" onclick="deleteProduct(${product.ID})">Eliminar</button>
                     </td>
                 `;
                 productList.appendChild(productRow);
@@ -41,7 +55,7 @@ function showProductForm() {
             </div>
             <div class="form-group">
                 <label for="precio">Precio:</label>
-                <input type="number" id="precio" name="precio" required>
+                <input type="number" id="precio" name="precio" step="0.01" required>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
@@ -53,16 +67,25 @@ function showProductForm() {
             </div>
             <div class="form-group">
                 <label for="fk_categoria">Categoría:</label>
-                <input type="number" id="fk_categoria" name="fk_categoria" required>
+                <select  name="fk_categoria" id="fk_categoria" required>
+                    <option value="fk_categoria">&nbsp;</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" name="imagen">
             </div>
-            <button type="submit" class="btn">Guardar Producto</button>
+            <button type="submit" class="btn">Guardar</button>
+            <button type="button" id="cancelarProductFromContent" class="btn">Cancelar</button>
         </form>
     `;
     document.getElementById('productFormContent').addEventListener('submit', submitProductForm);
+    document.getElementById('cancelarProductFromContent').addEventListener('click', closeProductForm);
+
+    let selectCategorias = document.getElementById('fk_categoria')
+    categorias.forEach((opcion) => {
+        selectCategorias.options[selectCategorias.options.length] = opcion
+    })
 }
 
 function closeProductForm() {
@@ -75,10 +98,11 @@ function submitProductForm(event) {
     const formData = new FormData(event.target);
     const productId = document.getElementById('productId').value;
 
-    let url = 'http://localhost:3000/api/productos';
+    let url = '/productos';
     let method = 'POST';
+
     if (productId) {
-        url = `http://localhost:3000/api/productos/${productId}`;
+        url = `/productos/${productId}`;
         method = 'PUT';
     }
 
@@ -88,7 +112,7 @@ function submitProductForm(event) {
     })
     .then(response => response.json())
     .then(data => {
-        alert('Producto guardado con éxito');
+        alert(data.message);
         loadProducts();
         event.target.reset();
         closeProductForm();
@@ -97,32 +121,27 @@ function submitProductForm(event) {
 }
 
 function editProduct(id) {
-    fetch(`http://localhost:3000/api/productos/${id}`)
+    fetch(`/productos/${id}`)
         .then(response => response.json())
         .then(product => {
             showProductForm();
-            document.getElementById('productId').value = product.id_producto;
-            document.getElementById('nombre').value = product.nombre;
-            document.getElementById('precio').value = product.precio;
-            document.getElementById('descripcion').value = product.descripcion;
-            document.getElementById('stock').value = product.stock;
-            document.getElementById('fk_categoria').value = product.fk_categoria;
-            // No cargar la imagen en el campo de archivo
+            document.getElementById('productId').value = product.ID;
+            document.getElementById('nombre').value = product.NOMBRE;
+            document.getElementById('precio').value = product.PRECIO;
+            document.getElementById('descripcion').value = product.DESCRIPCION;
+            document.getElementById('stock').value = product.STOCK;
+            document.getElementById('fk_categoria').value = product.ID_CATEGORIA;
         })
         .catch(error => console.error('Error:', error));
 }
 
 function deleteProduct(id) {
-    fetch(`http://localhost:3000/api/productos/${id}`, {
+    fetch(`/productos/${id}`, {
         method: 'DELETE'
     })
+    .then(response => response.json())
     .then(response => {
-        if (response.ok) {
-            alert('Producto eliminado con éxito');
-            loadProducts();
-        } else {
-            alert('Error al eliminar el producto');
-        }
+        alert(response.message);
     })
     .catch(error => console.error('Error:', error));
 }

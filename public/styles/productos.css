@@ -89,7 +89,7 @@ th {
     margin-bottom: 5px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea,  .form-group select {
     width: calc(100% - 22px);
     padding: 10px;
     border-radius: 10px;
