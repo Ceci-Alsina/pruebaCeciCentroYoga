@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadProducts() {
-    fetch('http://localhost:3000/api/productos')
+    fetch('/productos')
         .then(response => response.json())
         .then(products => {
             const productContainer = document.getElementById('productContainer');
@@ -11,15 +11,16 @@ function loadProducts() {
             products.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.classList.add('col-lg-4', 'col-md-6', 'mb-4');
+                let aux = "data:imgen/png;base64," + product.IMAGEN
                 productCard.innerHTML = `
                     <div class="card h-100">
-                        <img src="../uploads/${product.imagen}" class="card-img-top" alt="${product.nombre}">
+                        <img src="${aux}" class="card-img-top" alt="${product.NOMBRE}">
                         <div class="card-body">
-                            <h5 class="card-title">${product.nombre}</h5>
-                            <p class="card-text">${product.descripcion}</p>
+                            <h5 class="card-title">${product.NOMBRE}</h5>
+                            <p class="card-text">${product.DESCRIPCION}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Precio: $${product.precio}</small>
+                            <small class="text-muted">Precio: $${product.PRECIO}</small>
                         </div>
                     </div>
                 `;

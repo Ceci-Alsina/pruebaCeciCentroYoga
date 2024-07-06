@@ -1,0 +1,62 @@
+
+#adminMensajesContenido {
+    width: 100%;
+}
+
+#adminMensajesContenido > div {
+    width: 100%;
+}
+
+#adminMensajesTable {
+    margin: 0.5rem;
+    width: 100%;
+}
+
+#adminMensajesTable > thead > tr {
+    background-color: var(--color-light-violeta);
+}
+
+#adminMensajesTable > tbody > tr > td {
+    padding: 1rem;
+}
+
+#adminMensajesTable > thead > tr > th {
+    padding: 1rem;
+}
+
+#adminMensajesTable > tbody > tr:nth-child(even) {
+    background-color: var(--color-peach);
+}
+
+#cuerpoDialogoAdminMensaje > div {
+    padding: 0.5rem;
+}
+
+#cuerpoDialogoAdminMensaje > div > div.titulo,
+#cuerpoDialogoAdminMensaje > div > div > span.titulo {
+    font-style: italic;
+    padding-top: 0.5rem;
+}
+
+#cuerpoDialogoAdminMensaje > div > div.filaDialogo {
+    padding-top: 0.5rem;
+}
+
+#cuerpoDialogoAdminMensaje > div > div > span.material-symbols-outlined {
+    font-size: 20px;
+}
+
+#cerrarDialogoAdminMensaje {
+    width: 100px;
+    background-color: var(--color-light-violeta);
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+#dialogoAdminMensaje {
+    border: 3px solid var(--color-light-violeta);
+    border-radius: 5px;
+    background: var(--color-light-blue);
+    text-align: center;
+}
