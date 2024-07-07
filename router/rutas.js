@@ -122,8 +122,9 @@ rutas.get('/passEncriptada', obtenerPassEncriptada)
 
 // Agregando ruta para la raíz
 rutas.get('/', (req, res) => {
-    res.send('Bienvenido a Centro de Yoga');
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
 
 
 export default rutas

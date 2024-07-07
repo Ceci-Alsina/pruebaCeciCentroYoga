@@ -1,6 +1,6 @@
-import express from 'express'
-import rutas from './router/rutas.js'
-import cookieParser from 'cookie-parser'
+import express from 'express';
+import rutas from './router/rutas.js';
+import cookieParser from 'cookie-parser';
 
 const app = express()
 const port = process.env.PORT || 3000
