@@ -103,8 +103,12 @@ Este proyecto es el backend para la aplicación "Centro De Yoga", que gestiona l
 ![Estructura de tablas](/DB/yoga.svg)
 
 
-## Contribución
+## Colaboradores
 
+- Rodrigo Fernández
+- Cecilia Alsina
+- Kurt Seelaff
+- Nahuel Manchaca
 
 
 
