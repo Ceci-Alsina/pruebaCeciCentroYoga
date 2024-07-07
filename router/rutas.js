@@ -120,4 +120,10 @@ rutas.get('/adminProductos', verificarToken, irAProductosGET)
 
 rutas.get('/passEncriptada', obtenerPassEncriptada)
 
+// Agregando ruta para la raíz
+rutas.get('/', (req, res) => {
+    res.send('Bienvenido a Centro de Yoga');
+});
+
+
 export default rutas
